@@ -4,13 +4,15 @@ $opsi = $_GET['action'];
 //start input
 if ($opsi == "input") {
     $data = [
-        'npm' => $_POST['npm'],
-        'nama' => $_POST['nama'],
-        'kd_semester' => $_POST['kd_semester'],
-        'kd_prodi' => $_POST['kd_prodi'],
-        'password' => sha1($_POST['password'])
+        'niu' => $_POST['niu'],
+        'kd_calon' => $_POST['kd_calon'],
+        'ijazah' => $_POST['ijazah'],
+        'ktp' => $_POST['ktp'],
+        'sp' => $_POST['sp'],
+        'skck' => $_POST['skck'],
+        'cv' => $_POST['cv'],
     ];
-    $simpan = __simpan($db, "mahasiswa", $data);
+    $simpan = __simpan($db, "berkas", $data);
     if ($simpan) {
 ?>
         <script>
@@ -43,22 +45,18 @@ elseif ($opsi == "delete") {
 elseif ($opsi == "update") {
     if (!empty($_POST['password'])) {
         $data = [
-            'nama' => $_POST['nama'],
-            'kd_semester' => $_POST['kd_semester'],
-            'kd_prodi' => $_POST['kd_prodi'],
-            'password' => sha1($_POST['password'])
-        ];
-    } else {
-        $data = [
-            'nama' => $_POST['nama'],
-            'kd_semester' => $_POST['kd_semester'],
-            'kd_prodi' => $_POST['kd_prodi'],
+            'kd_calon' => $_POST['kd_calon'],
+            'ijazah' => $_POST['ijazah'],
+            'ktp' => $_POST['ktp'],
+            'sp' => $_POST['sp'],
+            'skck' => $_POST['skck'],
+            'cv' => $_POST['cv']
         ];
     }
     $where = [
-        'npm' => $_POST['id']
+        'niu' => $_POST['id']
     ];
-    $update = __update($db, "mahasiswa", $data, $where);
+    $update = __update($db, "berkas", $data, $where);
     if ($update) {
 
     ?>
