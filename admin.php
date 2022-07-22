@@ -14,7 +14,7 @@ if ($_SESSION['status_login'] != true) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMAI 1 SOKOREJO</title>
+    <title>Rekrutmen Umana P2S3</title>
     <link rel="stylesheet" href="./assets/app/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="index.css">
