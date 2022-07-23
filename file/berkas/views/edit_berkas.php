@@ -20,7 +20,7 @@ $p = $query->fetch_object();
 
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label>nama</label>
+                            <label>Nama</label>
                             <input type="text" name="nama" placeholder="nama lengkap" class="input-control" value="<?= $p->nama?>" required>
                         </div>
                         <div class="from-group">
