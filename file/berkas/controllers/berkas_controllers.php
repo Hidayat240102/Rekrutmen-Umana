@@ -16,7 +16,7 @@ if ($opsi == "input") {
     if ($simpan) {
 ?>
         <script>
-            window.location.href = 'admin.php?target=mahasiswa';
+            window.location.href = 'admin.php?target=berkas';
         </script>
     <?php
     } else {
@@ -29,11 +29,11 @@ elseif ($opsi == "delete") {
     $where = [
         'npm' => $_GET['id']
     ];
-    $delete = __delete($db, 'mahasiswa', $where);
+    $delete = __delete($db, 'berkas', $where);
     if ($delete) {
     ?>
         <script>
-            window.location.href = 'admin.php?target=mahasiswa';
+            window.location.href = 'admin.php?target=berkas';
         </script>
     <?php
     } else {
@@ -61,7 +61,7 @@ elseif ($opsi == "update") {
 
     ?>
         <script>
-            window.location.href = 'admin.php?target=mahasiswa';
+            window.location.href = 'admin.php?target=berkas';
         </script>
 <?php
     } else {
