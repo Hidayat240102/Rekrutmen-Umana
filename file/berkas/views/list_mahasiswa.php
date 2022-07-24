@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h4><i class="fa-solid fa-database"></i> Data Mahasiswa</h4>
+        <h4><i class="fa-solid fa-database"></i> Data Berkas</h4>
     </div>
     <div class="card-body">
         <?php
@@ -14,32 +14,36 @@
         echo "<table class='table table-striped table-bordered'>
         <thead>
         <tr>
-            <th>No</th><th>NPM</th><th>Nama</th><th>Semester</th><th>Prodi</th><th></th>
+            <th>No</th><th>NIU</th><th>Profile</th><th>Calon</th><th>Ijazah</th><th>KTP</th><th>S per</th><th>SKCK</th><th>C Vitae</th><th></th>
         </tr>
         </thead>
         <tbody>";
         //ambil data dari database
         $join = [
-            "LEFT JOIN prodi as p on p.kd_prodi=m.kd_prodi",
-            "LEFT JOIN semester as s on s.kd_semester=m.kd_semester"
+            "LEFT JOIN calon as p on p.kd_calon=m.kd_calon",
+            
         ];
         $where = [
-            'm.kd_prodi' => $_SESSION['id']
+            'm.kd_calon' => $_SESSION['id']
         ];
-        $q = __ambil($db, "mahasiswa as m", "*", null, $join);
+        $q = __ambil($db, "berkas as m", "*", null, $join);
         $no = 1;
         while ($r = $q->fetch_array()) {
             echo "<tr>
             <td>" . $no . "</td>
-            <td>" . $r['npm'] . "</td>
-            <td>" . $r['nama'] . "</td>
-            <td>" . $r['semester'] . "</td>
-            <td>" . $r['nama_prodi'] . "</td>
+            <td>" . $r['niu'] . "</td>
+            <td><img src=profil/" . $r['profil'] . "width=50></td>
+            <td>" . $r['nama_calon'] . "</td>
+            <td><img src=profil/" . $r['ijazah'] . " width=50></td>
+            <td><img src=profil/" . $r['ktp'] . " width=50></td>
+            <td><img src=profil/" . $r['sp'] . " width=50></td>
+            <td><img src=profil/" . $r['skck'] . " width=50></td>
+            <td><img src=profil/" . $r['cv'] . " width=50></td>
             <td>
-                <a class='btn btn-success btn-sm' href='admin.php?target=mahasiswa&action=edit&id=" . $r['npm'] . "'>
+                <a class='btn btn-success btn-sm' href='admin.php?target=berkas&action=edit&id=" . $r['niu'] . "'>
                     <i class='fa-solid fa-pen-to-square'></i>
                 </a>
-                <a class='btn btn-danger btn-sm' href='admin.php?target=mahasiswa&action=delete&id=" . $r['npm'] . "'>
+                <a class='btn btn-danger btn-sm' href='admin.php?target=berkas&action=delete&id=" . $r['niu'] . "'>
                     <i class='fa-solid fa-trash'></i>
                 </a>
             </td>
